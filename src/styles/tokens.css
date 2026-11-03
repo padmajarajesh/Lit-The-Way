@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Lit The Way — design tokens
+   ========================================================================== */
+:root {
+  /* Palette (approved) */
+  --ivory: #f7f5ef;
+  --cream: #eee8dc;
+  --white: #ffffff;
+  --navy: #263b4a;
+  --terracotta: #b98268;
+  --gold: #c5aa78;
+  --sage: #899789;
+  --warm-grey: #77766f;
+
+  /* Functional shades derived from the palette (for accessible contrast) */
+  --navy-ink: #1f3140;          /* deepest text / footer */
+  --ink-soft: #4b5a65;          /* body copy on light backgrounds */
+  --terracotta-ink: #96624b;    /* terracotta for text & buttons (AA on white) */
+  --gold-soft: rgba(197, 170, 120, 0.45);
+  --line: rgba(38, 59, 74, 0.12);
+  --line-strong: rgba(38, 59, 74, 0.22);
+  --on-dark: #f7f5ef;
+  --on-dark-soft: rgba(247, 245, 239, 0.74);
+
+  /* Typography */
+  --font-display: 'Playfair Display', 'Times New Roman', serif;
+  --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --fs-display: clamp(2.6rem, 1.5rem + 4.4vw, 5.4rem);
+  --fs-h1: clamp(2.4rem, 1.6rem + 3.2vw, 4.4rem);
+  --fs-h2: clamp(1.95rem, 1.4rem + 2.1vw, 3.2rem);
+  --fs-h3: clamp(1.3rem, 1.15rem + 0.6vw, 1.65rem);
+  --fs-quote: clamp(1.6rem, 1.2rem + 1.7vw, 2.6rem);
+  --fs-lede: clamp(1.08rem, 1rem + 0.35vw, 1.28rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9rem;
+  --fs-eyebrow: 0.76rem;
+
+  /* Spacing */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
+  --section-y: clamp(4.5rem, 3rem + 6vw, 9rem);
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --container: 1240px;
+  --container-narrow: 820px;
+
+  /* Shape & depth */
+  --radius: 3px;
+  --radius-lg: 6px;
+  --shadow-soft: 0 1px 2px rgba(31, 49, 64, 0.04), 0 8px 24px -12px rgba(31, 49, 64, 0.14);
+  --shadow-lift: 0 2px 4px rgba(31, 49, 64, 0.05), 0 22px 44px -20px rgba(31, 49, 64, 0.28);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.45s;
+
+  --nav-h: 84px;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --nav-h: 68px;
+  }
+}
