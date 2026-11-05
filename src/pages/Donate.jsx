@@ -59,7 +59,7 @@ export default function Donate() {
       </section>
 
       {/* Causes (information only) */}
-      <section className="section section--cream">
+      <section className="section section--sand">
         <div className="container">
           <SectionHeading
             number="01"

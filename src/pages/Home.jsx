@@ -1,50 +1,53 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight, HandHeart, Users, Theater } from 'lucide-react';
-import Hero from '../components/Hero.jsx';
+import { ArrowRight, ArrowUpRight, HandHeart, Users, Theater, GraduationCap, HeartHandshake, CalendarDays } from 'lucide-react';
+import HeroCarousel from '../components/HeroCarousel.jsx';
 import SectionHeading from '../components/SectionHeading.jsx';
 import CauseCard from '../components/CauseCard.jsx';
-import EventCard from '../components/EventCard.jsx';
-import CTASection from '../components/CTASection.jsx';
-import SeedToTree from '../components/SeedToTree.jsx';
-import Ornament from '../components/Ornament.jsx';
 import Reveal, { RevealGroup, RevealItem, RevealImage } from '../components/Reveal.jsx';
-import { organisation, quotes } from '../data/site.js';
+import { organisation } from '../data/site.js';
 import { causes } from '../data/causes.js';
-import { events } from '../data/events.js';
+import { upcomingEvents } from '../data/events.js';
 import { beneficiaryOrganisations } from '../data/impact.js';
-import { chair, teamMembers } from '../data/teamMembers.js';
+
+const involveItems = [
+  {
+    icon: HandHeart,
+    title: 'Volunteer',
+    text: 'Join our volunteers at community programmes and events in North Texas.',
+    to: '/contact',
+    cta: 'Get in touch',
+  },
+  {
+    icon: GraduationCap,
+    title: 'Support Education',
+    text: 'Support scholarships and school supplies for students.',
+    to: '/donate',
+    cta: 'Ways to give',
+  },
+  {
+    icon: Users,
+    title: 'Community Participation',
+    text: 'Take part in our community gatherings and cultural evenings.',
+    to: '/events',
+    cta: 'See events',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Support Activities',
+    text: 'Partner with us on cultural performances and fundraising evenings.',
+    to: '/contact',
+    cta: 'Talk to us',
+  },
+];
 
 export default function Home() {
   return (
-    <>
-      {/* 1 — Cinematic hero */}
-      <Hero
-        variant="cinematic"
-        eyebrow={`A ${organisation.status.split(' ')[0]} nonprofit · Since ${organisation.founded}`}
-        title={
-          <>
-            Lighting Futures, <span className="accent">One Life at a Time.</span>
-          </>
-        }
-        lede="Bringing communities together through education, compassion and the power of giving."
-        image={`${import.meta.env.BASE_URL}images/scholarship-recipients.jpg`}
-        imageAlt="Scholarship recipients standing together with community elders in Kerala"
-        imagePosition="center 35%"
-        caption="Scholarship recipients and community elders · Kerala, India"
-        actions={
-          <>
-            <Link to="/donate" className="btn btn--primary">
-              Make a Difference <ArrowRight size={18} strokeWidth={1.5} aria-hidden="true" />
-            </Link>
-            <Link to="/about" className="btn btn--ghost-light">
-              Explore Our Story
-            </Link>
-          </>
-        }
-      />
+    <div className="home">
+      {/* Hero — slider wording + photo carousel (content in data/hero.jsx) */}
+      <HeroCarousel />
 
-      {/* 2 — Introduction */}
-      <section className="section intro">
+      {/* 01 — Introduction */}
+      <section className="section section--white intro">
         <div className="container intro__grid">
           <div className="intro__text">
             <SectionHeading
@@ -83,17 +86,35 @@ export default function Home() {
             </Reveal>
           </div>
 
-          <div className="intro__art">
-            <SeedToTree />
-            <Reveal as="blockquote" className="quote quote--centered" delay={0.3}>
-              <p>“{quotes.ramakrishna.text}”</p>
-              <cite>— {quotes.ramakrishna.author}</cite>
-            </Reveal>
+          <div className="intro__art intro__art--photo">
+            <RevealImage
+              className="intro__photo arch"
+              src={`${import.meta.env.BASE_URL}images/scholarship-meeting-2.jpg`}
+              alt="A Lit The Way scholarship meeting"
+            />
           </div>
         </div>
       </section>
 
-      {/* 3 — Causes */}
+      {/* Our Mission — the client's supplied banner, shown as-is (its wording is part of the image) */}
+      <section className="mission-band section--sand" aria-labelledby="mission-title">
+        <div className="container">
+          <h2 className="visually-hidden" id="mission-title">
+            Our Mission: Empowerment through Education
+          </h2>
+          <img
+            className="mission-band__img"
+            src={`${import.meta.env.BASE_URL}images/our-mission-banner.png`}
+            alt=""
+            width="1996"
+            height="788"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </section>
+
+      {/* 02 — Causes */}
       <section className="section section--cream causes-home">
         <div className="container">
           <div className="split-heading">
@@ -124,7 +145,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4 — Cultural fundraising */}
+      {/* 03 — Cultural programmes */}
       <section className="section culture">
         <div className="container culture__grid">
           <div className="culture__posters">
@@ -177,8 +198,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5 — Impact storytelling */}
-      <section className="section section--white impact-home">
+      {/* 04 — Activities / impact */}
+      <section className="section section--sand impact-home">
         <div className="container">
           <SectionHeading
             number="04"
@@ -193,7 +214,7 @@ export default function Home() {
           />
           <div className="impact-home__grid">
             <div className="impact-home__mosaic">
-              <RevealImage className="mosaic mosaic--a" src={`${import.meta.env.BASE_URL}images/textbooks-alappuzha-2.jpg`} alt="Children holding new textbooks in Alappuzha" />
+              <RevealImage className="mosaic mosaic--a" src={`${import.meta.env.BASE_URL}images/students-books-queue.jpg`} alt="Students lining up for school supplies" />
               <RevealImage className="mosaic mosaic--b" src={`${import.meta.env.BASE_URL}images/food-kits.jpg`} alt="Food kits prepared for distribution" />
               <RevealImage className="mosaic mosaic--c" src={`${import.meta.env.BASE_URL}images/notebooks-distribution-3.jpg`} alt="Students receiving notebooks" />
             </div>
@@ -207,178 +228,79 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Link to="/impact" className="link-arrow">
-                See our impact <ArrowRight size={16} strokeWidth={1.5} aria-hidden="true" />
+              <Link to="/activities" className="link-arrow">
+                See our activities <ArrowRight size={16} strokeWidth={1.5} aria-hidden="true" />
               </Link>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* 6 — Events */}
-      <section className="section events-home">
+      {/* 05 — Events (upcoming only) */}
+      <section className="section section--white events-home">
         <div className="container">
-          <div className="split-heading">
-            <SectionHeading
-              number="05"
-              eyebrow="Events"
-              title={
-                <>
-                  Gather for a <span className="accent">Greater Purpose.</span>
-                </>
-              }
-            />
-            <Reveal className="split-heading__aside" delay={0.15}>
-              <p>Moments from our past programmes. New events will be announced here as they are confirmed.</p>
+          <div className="events-home__row">
+            <SectionHeading number="05" eyebrow="Events" title="Upcoming Events" />
+            <Reveal className="events-home__body" delay={0.1}>
+              {upcomingEvents.length === 0 ? (
+                <div className="events-home__note">
+                  <CalendarDays size={22} strokeWidth={1.3} aria-hidden="true" />
+                  <p>No upcoming events announced yet. Confirmed events will be published on the Events page.</p>
+                </div>
+              ) : (
+                <ul className="events-home__list">
+                  {upcomingEvents.map((e) => (
+                    <li key={e.id} className="events-home__item">
+                      <span className="events-home__date">
+                        <strong>{e.dateShort?.day}</strong> {e.dateShort?.month}
+                      </span>
+                      <span className="events-home__info">
+                        <span className="events-home__title">{e.title}</span>
+                        <span className="events-home__meta">{[e.time, e.venue].filter(Boolean).join(' · ')}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
               <Link to="/events" className="link-arrow">
                 All events <ArrowRight size={16} strokeWidth={1.5} aria-hidden="true" />
               </Link>
             </Reveal>
           </div>
-          <div className="event-grid">
-            {events.map((e) => (
-              <EventCard key={e.id} event={e} />
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* 7 — India–America connection */}
-      <section className="section section--cream pattern-jaali bridge">
+      {/* 06 — Get involved */}
+      <section className="section involve-home">
         <div className="container">
           <SectionHeading
             number="06"
-            eyebrow="Two Homes, One Heart"
-            title={
-              <>
-                Across Cultures, <span className="accent">United by Compassion.</span>
-              </>
-            }
-            intro="Rooted in the Indian-American community of North Texas, Lit The Way carries its care across oceans — to classrooms in Kerala and beyond — while serving neighbours close to home."
-            align="center"
-          />
-          <div className="bridge__grid">
-            <Reveal as="figure" className="bridge__figure">
-              <div className="bridge__img arch">
-                <img src={`${import.meta.env.BASE_URL}images/dallas-volunteers-packing.jpg`} alt="Lit The Way volunteers packing boxes in Dallas" loading="lazy" />
-              </div>
-              <figcaption>
-                <span className="bridge__place">Dallas, Texas</span>
-                Volunteering at Community Partners of Dallas
-              </figcaption>
-            </Reveal>
-            <div className="bridge__link" aria-hidden="true">
-              <span />
-              <Ornament />
-              <span />
-            </div>
-            <Reveal as="figure" className="bridge__figure" delay={0.15}>
-              <div className="bridge__img arch">
-                <img src={`${import.meta.env.BASE_URL}images/textbooks-alappuzha-1.jpg`} alt="Lit The Way donating textbooks to children in Alappuzha" loading="lazy" />
-              </div>
-              <figcaption>
-                <span className="bridge__place">Kerala, India</span>
-                Textbooks and notebooks for children in Alappuzha
-              </figcaption>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Team teaser */}
-      <section className="section section--white team-teaser">
-        <div className="container team-teaser__grid">
-          <Reveal className="team-teaser__chair">
-            <div className="team-teaser__portrait arch">
-              <img src={chair.photo} alt={`Portrait of ${chair.name}`} loading="lazy" />
-            </div>
-            <p className="team-teaser__role">{chair.role}</p>
-            <p className="team-teaser__name">{chair.name}</p>
-          </Reveal>
-          <div>
-            <SectionHeading
-              number="07"
-              eyebrow="Our Team"
-              title={
-                <>
-                  The People Behind <span className="accent">the Purpose.</span>
-                </>
-              }
-            />
-            <Reveal delay={0.1}>
-              <ul className="name-list">
-                {teamMembers.map((m) => (
-                  <li key={m.id}>{m.name}</li>
-                ))}
-              </ul>
-              <Link to="/about#team" className="link-arrow">
-                Meet the team <ArrowRight size={16} strokeWidth={1.5} aria-hidden="true" />
-              </Link>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* 8 — Get involved */}
-      <section className="section involve">
-        <div className="container">
-          <SectionHeading
-            number="08"
             eyebrow="Get Involved"
             title={
               <>
-                Three ways to <span className="accent">light the way.</span>
+                Ways to <span className="accent">light the way.</span>
               </>
             }
             align="center"
           />
-          <RevealGroup className="involve__grid" stagger={0.1}>
-            {[
-              {
-                n: 'I',
-                title: 'Donate',
-                text: 'Support scholarships, school supplies and urgent community needs.',
-                to: '/donate',
-                cta: 'Ways to give',
-              },
-              {
-                n: 'II',
-                title: 'Volunteer',
-                text: 'Join our volunteers at community programmes and events in North Texas.',
-                to: '/contact',
-                cta: 'Get in touch',
-              },
-              {
-                n: 'III',
-                title: 'Sponsor',
-                text: 'Partner with us on cultural performances and fundraising evenings.',
-                to: '/contact',
-                cta: 'Talk to us',
-              },
-            ].map((item) => (
-              <RevealItem key={item.title} className="involve__item">
-                <span className="involve__num">{item.n}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-                <Link to={item.to} className="link-arrow">
-                  {item.cta} <ArrowUpRight size={16} strokeWidth={1.5} aria-hidden="true" />
+          <RevealGroup className="involve-home__grid" stagger={0.08}>
+            {involveItems.map(({ icon: Icon, title, text, to, cta }) => (
+              <RevealItem key={title} className="involve-home__item">
+                <Link to={to} className="involve-home__link">
+                  <span className="involve-home__icon">
+                    <Icon size={22} strokeWidth={1.4} aria-hidden="true" />
+                  </span>
+                  <h3 className="involve-home__title">{title}</h3>
+                  <p className="involve-home__text">{text}</p>
+                  <span className="involve-home__cta">
+                    {cta} <ArrowUpRight size={14} strokeWidth={1.6} aria-hidden="true" />
+                  </span>
                 </Link>
               </RevealItem>
             ))}
           </RevealGroup>
         </div>
       </section>
-
-      {/* 9 — Final CTA */}
-      <CTASection
-        title={
-          <>
-            Every Act of Giving <span className="accent">Lights a New Path.</span>
-          </>
-        }
-        text="Your generosity helps a student stay in school, a child open a new book, and a family find its footing."
-        quote={quotes.mandela}
-      />
-    </>
+    </div>
   );
 }

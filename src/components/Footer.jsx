@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone } from 'lucide-react';
 import Logo from './Logo.jsx';
-import { contact, navigation, organisation } from '../data/site.js';
+import { FlagPair } from './Flags.jsx';
+import { contact, navigation, organisation, secondaryLinks } from '../data/site.js';
 import { causes } from '../data/causes.js';
 
 export default function Footer() {
@@ -10,11 +11,12 @@ export default function Footer() {
     <footer className="footer on-dark">
       <div className="container footer__grid">
         <div className="footer__brand">
-          <Logo light />
+          <Logo plate />
           <p className="footer__mission">
             A {organisation.status} founded in {organisation.founded}, lighting the way to education
             for students who need it most.
           </p>
+          <FlagPair className="footer__flags" />
         </div>
 
         <div>
@@ -25,9 +27,11 @@ export default function Footer() {
                 <Link to={item.to}>{item.label}</Link>
               </li>
             ))}
-            <li>
-              <Link to="/donate">Donate</Link>
-            </li>
+            {secondaryLinks.map((item) => (
+              <li key={item.to}>
+                <Link to={item.to}>{item.label}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 

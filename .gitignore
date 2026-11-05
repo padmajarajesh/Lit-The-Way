@@ -1,5 +1,22 @@
+# Dependencies & build output
 node_modules
 dist
+
+# Environment files and secrets — never commit these
+.env
+.env.*
+!.env.example
+*.local
+*.pem
+*.key
+
+# Logs, OS and editor files
 *.log
 .DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Personal notes
 Prompt.txt

@@ -6,12 +6,13 @@ import CTASection from '../components/CTASection.jsx';
 import Reveal, { RevealGroup, RevealItem, RevealImage } from '../components/Reveal.jsx';
 import { beneficiaryOrganisations, individualSupport, impactStories } from '../data/impact.js';
 import { quotes } from '../data/site.js';
+import { PlaceFlag } from '../components/Flags.jsx';
 
 export default function Impact() {
   return (
     <>
       <Hero
-        eyebrow="Our Impact"
+        eyebrow="Activities"
         title={
           <>
             Small Acts. <span className="accent">Meaningful Change.</span>
@@ -24,7 +25,7 @@ export default function Impact() {
       />
 
       {/* Stories */}
-      <section className="section">
+      <section className="section section--white">
         <div className="container">
           <SectionHeading
             number="01"
@@ -51,7 +52,7 @@ export default function Impact() {
       </section>
 
       {/* Beneficiaries */}
-      <section className="section section--white">
+      <section className="section section--sand">
         <div className="container">
           <SectionHeading
             number="02"
@@ -66,9 +67,13 @@ export default function Impact() {
           <RevealGroup as="ul" className="beneficiaries" stagger={0.05}>
             {beneficiaryOrganisations.map((b) => (
               <RevealItem as="li" key={b.name} className="beneficiary">
-                <span className="beneficiary__area">{b.area}</span>
-                <h3 className="beneficiary__name">{b.name}</h3>
-                <p className="beneficiary__place">{b.place}</p>
+                <div className="beneficiary__head">
+                  <span className="beneficiary__area">{b.area}</span>
+                  <h3 className="beneficiary__name">{b.name}</h3>
+                  <p className="beneficiary__place">
+                    <PlaceFlag place={b.place} /> {b.place}
+                  </p>
+                </div>
                 <p className="beneficiary__support">{b.support}</p>
               </RevealItem>
             ))}

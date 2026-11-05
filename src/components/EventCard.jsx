@@ -1,5 +1,6 @@
 import { MapPin, Clock, Users } from 'lucide-react';
 import Reveal from './Reveal.jsx';
+import { PlaceFlag } from './Flags.jsx';
 
 /** Poster-led event card. `layout="feature"` gives a wide editorial row. */
 export default function EventCard({ event, layout = 'card', onOpenPoster }) {
@@ -45,7 +46,9 @@ export default function EventCard({ event, layout = 'card', onOpenPoster }) {
           )}
           <li>
             <MapPin size={16} strokeWidth={1.4} aria-hidden="true" />
-            {event.venue}
+            <span>
+              {event.venue} <PlaceFlag place={event.venue} />
+            </span>
           </li>
           <li>
             <Users size={16} strokeWidth={1.4} aria-hidden="true" />

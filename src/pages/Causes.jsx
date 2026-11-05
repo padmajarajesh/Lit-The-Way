@@ -38,7 +38,7 @@ export default function Causes() {
         </div>
       </nav>
 
-      <section className="section cause-rows">
+      <section className="section section--white cause-rows">
         <div className="container">
           {causes.map((c, i) => (
             <article key={c.id} id={c.id} className={`cause-row${i % 2 ? ' cause-row--reverse' : ''}`}>

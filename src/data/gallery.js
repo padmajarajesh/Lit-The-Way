@@ -21,7 +21,7 @@ const img = (file, category, caption, orientation = 'landscape') => ({
 export const galleryImages = [
   img('scholarship-recipients.jpg', 'Scholarships', 'Scholarship recipients with community elders, Kerala'),
   img('sri-ramakrishna-ashram-ceremony.jpg', 'Scholarships', 'Programme at Sri Ramakrishna Ashram'),
-  img('scholarship-handover.jpg', 'Scholarships', 'Presenting a scholarship'),
+  img('scholarship-handover.png', 'Scholarships', 'Presenting a scholarship'),
   img('scholarship-distribution-1.jpg', 'Scholarships', 'Scholarship distribution', 'portrait'),
   img('scholarship-meeting-1.jpg', 'Scholarships', 'Students and families at a scholarship meeting'),
   img('scholarship-distribution-2.jpg', 'Scholarships', 'Scholarship distribution', 'portrait'),

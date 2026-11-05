@@ -1,7 +1,8 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence, MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
+import MobileNav from './components/MobileNav.jsx';
 import ScrollManager from './components/ScrollManager.jsx';
 import PageTransition from './components/PageTransition.jsx';
 import Home from './pages/Home.jsx';
@@ -12,6 +13,7 @@ import Impact from './pages/Impact.jsx';
 import Gallery from './pages/Gallery.jsx';
 import Donate from './pages/Donate.jsx';
 import Contact from './pages/Contact.jsx';
+import Team from './pages/Team.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 const routes = [
@@ -19,7 +21,9 @@ const routes = [
   { path: '/about', element: <About /> },
   { path: '/causes', element: <Causes /> },
   { path: '/events', element: <Events /> },
-  { path: '/impact', element: <Impact /> },
+  { path: '/activities', element: <Impact /> },
+  { path: '/team', element: <Team /> },
+  { path: '/impact', element: <Navigate to="/activities" replace /> },
   { path: '/gallery', element: <Gallery /> },
   { path: '/donate', element: <Donate /> },
   { path: '/contact', element: <Contact /> },
@@ -44,6 +48,7 @@ export default function App() {
         </Routes>
       </AnimatePresence>
       <Footer />
+      <MobileNav />
     </MotionConfig>
   );
 }

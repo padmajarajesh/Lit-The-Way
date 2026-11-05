@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import SeedToTree from '../components/SeedToTree.jsx';
+import Ornament from '../components/Ornament.jsx';
 
 export default function NotFound() {
   return (
     <section className="section not-found">
       <div className="container container--narrow not-found__inner">
-        <SeedToTree className="not-found__art" />
+        <Ornament className="not-found__art ornament--gold" />
         <p className="eyebrow">Page not found</p>
         <h1>
           This path hasn’t been <span className="accent">lit yet.</span>

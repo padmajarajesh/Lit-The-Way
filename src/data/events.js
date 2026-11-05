@@ -35,3 +35,7 @@ export const events = [
     imageAlt: 'Official poster for the fundraising drama Sooryaputhran',
   },
 ];
+
+// Upcoming events — add only confirmed events, using the same fields as above.
+// While this list is empty, the Events page shows a "No upcoming events announced yet" note.
+export const upcomingEvents = [];

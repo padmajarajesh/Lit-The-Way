@@ -25,7 +25,7 @@ export default function Contact() {
         lede="Questions about our work, volunteering, sponsoring an event or supporting a cause — reach out to the Lit The Way team."
       />
 
-      <section className="section section--tight contact">
+      <section className="section section--tight section--white contact">
         <div className="container contact__grid">
           <Reveal as="aside" className="contact__details">
             <h2 className="contact__heading">Contact details</h2>

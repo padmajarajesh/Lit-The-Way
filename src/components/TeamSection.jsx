@@ -3,21 +3,23 @@ import TeamCard from './TeamCard.jsx';
 import Reveal, { RevealGroup } from './Reveal.jsx';
 import { chair, teamMembers } from '../data/teamMembers.js';
 
-export default function TeamSection({ number = '04', id = 'team' }) {
+export default function TeamSection({ number = '04', id = 'team', showHeading = true }) {
   return (
-    <section className="section section--white team" id={id} aria-labelledby="team-title">
+    <section className="section section--white team" id={id} aria-labelledby={showHeading ? 'team-title' : undefined} aria-label={showHeading ? undefined : 'Our team'}>
       <div className="container">
-        <SectionHeading
-          number={number}
-          eyebrow="Our Team"
-          title={
-            <span id="team-title">
-              The People Behind <span className="accent">the Purpose</span>
-            </span>
-          }
-          intro="United by compassion, guided by purpose and committed to creating meaningful change."
-          align="center"
-        />
+        {showHeading && (
+          <SectionHeading
+            number={number}
+            eyebrow="Our Team"
+            title={
+              <span id="team-title">
+                The People Behind <span className="accent">the Purpose</span>
+              </span>
+            }
+            intro="United by compassion, guided by purpose and committed to creating meaningful change."
+            align="center"
+          />
+        )}
 
         <Reveal as="article" className="chair" aria-label={`${chair.role}: ${chair.name}`}>
           <div className="chair__portrait">

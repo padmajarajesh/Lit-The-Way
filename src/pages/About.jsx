@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { GraduationCap, BookOpen, Stethoscope, House, ArrowRight } from 'lucide-react';
 import Hero from '../components/Hero.jsx';
 import SectionHeading from '../components/SectionHeading.jsx';
-import TeamSection from '../components/TeamSection.jsx';
+import { IndiaFlag, USFlag } from '../components/Flags.jsx';
 import CTASection from '../components/CTASection.jsx';
 import Reveal, { RevealGroup, RevealItem, RevealImage } from '../components/Reveal.jsx';
 import { organisation, quotes } from '../data/site.js';
@@ -41,13 +41,13 @@ export default function About() {
           </>
         }
         lede={organisation.summary}
-        image={`${import.meta.env.BASE_URL}images/scholarship-handover.jpg`}
+        image={`${import.meta.env.BASE_URL}images/scholarship-handover.png`}
         imageAlt="A scholarship being presented to a student by community elders"
         caption="Presenting a scholarship · Kerala"
       />
 
       {/* Story */}
-      <section className="section story">
+      <section className="section section--white story">
         <div className="container story__grid">
           <div className="story__heading">
             <SectionHeading
@@ -98,7 +98,7 @@ export default function About() {
       </section>
 
       {/* What we do */}
-      <section className="section section--cream">
+      <section className="section section--sand">
         <div className="container what__grid">
           <div>
             <SectionHeading
@@ -137,7 +137,69 @@ export default function About() {
         </div>
       </section>
 
-      <TeamSection number="04" />
+      {/* India & United States — verified activities only (see data/impact.js, data/events.js) */}
+      <section className="section section--white two-homes">
+        <div className="container">
+          <SectionHeading
+            number="04"
+            eyebrow="India · United States"
+            title={
+              <>
+                Across Cultures, <span className="accent">United by Compassion.</span>
+              </>
+            }
+            align="center"
+          />
+          <RevealGroup className="two-homes__grid" stagger={0.12}>
+            {[
+              {
+                flag: <IndiaFlag height={18} />,
+                country: "India",
+                image: "textbooks-alappuzha-1.jpg",
+                alt: "Lit The Way donating textbooks to children in Alappuzha",
+                items: [
+                  "Scholarships through Sri Ramakrishna Ashrama, Kerala",
+                  "Textbooks and notebooks for Sree Sarada Devi Balika Sadanam, Alappuzha",
+                  "Rehabilitation of homes after the 2018 Kerala floods",
+                ],
+              },
+              {
+                flag: <USFlag height={18} />,
+                country: "United States",
+                image: "dallas-volunteers-packing.jpg",
+                alt: "Lit The Way volunteers packing essentials in Dallas",
+                items: [
+                  "A 501(c)(3) nonprofit charitable organization, established in 2008",
+                  "Volunteering at Community Partners of Dallas",
+                  "Malayalam drama with Bharathakala Theaters, Dallas",
+                ],
+              },
+            ].map((c) => (
+              <RevealItem as="article" key={c.country} className="home-card">
+                <div className="home-card__media">
+                  <img src={`${import.meta.env.BASE_URL}images/${c.image}`} alt={c.alt} loading="lazy" />
+                </div>
+                <div className="home-card__body">
+                  <p className="home-card__country">
+                    {c.flag}
+                    {c.country}
+                  </p>
+                  <ul className="home-card__list">
+                    {c.items.map((t) => (
+                      <li key={t}>{t}</li>
+                    ))}
+                  </ul>
+                </div>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+          <Reveal className="center-link">
+            <Link to="/team" className="link-arrow">
+              Meet the team <ArrowRight size={16} strokeWidth={1.5} aria-hidden="true" />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
 
       <CTASection
         title={

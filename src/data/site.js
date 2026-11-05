@@ -21,27 +21,36 @@ export const contact = {
   // No postal address or social media accounts are published on the official website.
 };
 
+// Quotes exactly as published on littheway.org — keep wording, punctuation and capitalisation.
 export const quotes = {
   ramakrishna: {
     text: 'Knowledge leads to unity, but ignorance to diversity.',
-    author: 'Sri Ramakrishna',
+    author: 'Ramakrishna',
   },
   mandela: {
     text: 'Education is the most powerful weapon which you can use to change the world.',
     author: 'Nelson Mandela',
   },
   einstein: {
-    text: 'In the middle of every difficulty lies opportunity.',
-    author: 'Albert Einstein',
+    text: 'IN THE MIDDLE OF EVERY DIFFICULTY LIES OPPORTUNITY.',
+    author: 'ALBERT EINSTEIN',
   },
 };
 
+// Main menu — the original littheway.org menu (Home, About Us, Events, Activities, Team, Gallery).
+// Do not add or rename items here. Other pages (Causes, Donate, Contact) are linked from the footer and page content.
 export const navigation = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about' },
-  { label: 'Our Causes', to: '/causes' },
   { label: 'Events', to: '/events' },
-  { label: 'Our Impact', to: '/impact' },
+  { label: 'Activities', to: '/activities' },
+  { label: 'Team', to: '/team' },
   { label: 'Gallery', to: '/gallery' },
+];
+
+// Pages that exist on this site but are not in the original main menu.
+export const secondaryLinks = [
+  { label: 'Our Causes', to: '/causes' },
+  { label: 'Donate', to: '/donate' },
   { label: 'Contact', to: '/contact' },
 ];

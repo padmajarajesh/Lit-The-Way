@@ -1,33 +1,28 @@
 import { RevealItem } from './Reveal.jsx';
 
-/** Placeholder portrait: soft cream arch with a quiet line motif and initials as temporary fallback. */
-function PortraitPlaceholder({ initials }) {
-  return (
-    <div className="portrait-placeholder" aria-hidden="true">
-      <svg viewBox="0 0 120 150" className="portrait-placeholder__art" preserveAspectRatio="xMidYMax meet">
-        <circle cx="60" cy="58" r="22" fill="none" stroke="currentColor" strokeWidth="1" />
-        <path d="M22 150c4-30 20-46 38-46s34 16 38 46" fill="none" stroke="currentColor" strokeWidth="1" />
-      </svg>
-      <span className="portrait-placeholder__initials">{initials}</span>
-    </div>
-  );
-}
-
 /**
- * Team profile card. Shows only verified information: role and bio render
- * only when present in data/teamMembers.js; photo falls back to a placeholder.
+ * Image-led team card. Shows only verified information:
+ * - `photo` — set it in data/teamMembers.js; until then a replaceable image frame is shown.
+ * - `role` and `bio` render only when present.
+ * Portraits are always cropped to the same 4:5 frame.
  */
 export default function TeamCard({ member }) {
   return (
     <RevealItem as="article" className="team-card" data-member-id={member.id}>
-      <div className="team-card__portrait">
+      <div className={`team-card__portrait${member.photo ? '' : ' team-card__portrait--empty'}`}>
         {member.photo ? (
-          <img src={member.photo} alt={`Portrait of ${member.name}`} loading="lazy" />
+          <img
+            src={member.photo}
+            alt={`Portrait of ${member.name}`}
+            loading="lazy"
+            style={member.photoPosition ? { objectPosition: member.photoPosition } : undefined}
+          />
         ) : (
-          <PortraitPlaceholder initials={member.initials} />
+          <span className="team-card__pending">Photograph to follow</span>
         )}
       </div>
       <div className="team-card__body">
+        <span className="team-card__rule" aria-hidden="true" />
         <h3 className="team-card__name">{member.name}</h3>
         {member.role && <p className="team-card__role">{member.role}</p>}
         {member.bio && <p className="team-card__bio">{member.bio}</p>}

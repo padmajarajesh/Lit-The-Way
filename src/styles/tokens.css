@@ -2,20 +2,32 @@
    Lit The Way — design tokens
    ========================================================================== */
 :root {
-  /* Palette (approved) */
-  --ivory: #f7f5ef;
-  --cream: #eee8dc;
-  --white: #ffffff;
+  /* Theme — mild brown / warm beige (single source of truth for surfaces) */
+  --bg-primary: #ead9c1;        /* main page background — warm sand */
+  --bg-secondary: #f8f4ec;      /* alternate sections — clearly lighter ivory */
+  --bg-highlight: #dcc3a5;      /* highlighted sections — deeper warm beige (use .section--sand) */
+  --surface-card: #fffcf6;      /* cards, form fields — lifts off both ivory and sand */
+  --surface-nav: #ffffff;       /* navbar & mobile bar — matches the logo file's own white ground */
+
+  /* Surface aliases used throughout the stylesheets */
+  --page: var(--bg-primary);
+  --ivory-soft: var(--bg-secondary);
+  --cream: var(--bg-secondary);
+  --ivory: var(--surface-card);
+  --white: var(--surface-card);
+
+  /* Brand colours */
   --navy: #263b4a;
-  --terracotta: #b98268;
-  --gold: #c5aa78;
+  --terracotta: #b98268;        /* muted terracotta accent (icons, rules, highlights) */
+  --gold: #c5aa78;              /* antique gold accent */
   --sage: #899789;
-  --warm-grey: #77766f;
+  --warm-grey: #5c5a54;         /* secondary text — 4.9:1 on the primary background */
 
   /* Functional shades derived from the palette (for accessible contrast) */
   --navy-ink: #1f3140;          /* deepest text / footer */
   --ink-soft: #4b5a65;          /* body copy on light backgrounds */
-  --terracotta-ink: #96624b;    /* terracotta for text & buttons (AA on white) */
+  --terracotta-ink: #7d503c;    /* terracotta for text — AA (4.9:1) on the primary background */
+  --sage-ink: #556357;          /* sage for small labels — AA on the primary background */
   --gold-soft: rgba(197, 170, 120, 0.45);
   --line: rgba(38, 59, 74, 0.12);
   --line-strong: rgba(38, 59, 74, 0.22);
@@ -44,7 +56,13 @@
   --space-4: 2rem;
   --space-5: 3rem;
   --space-6: 4.5rem;
-  --section-y: clamp(4.5rem, 3rem + 6vw, 9rem);
+  /* Compact, consistent vertical rhythm (used site-wide) */
+  --section-y: clamp(2.75rem, 2rem + 2.6vw, 4.75rem);   /* section top/bottom padding */
+  --hero-pt: clamp(1.5rem, 1rem + 2vw, 3rem);           /* page header, added below the fixed nav */
+  --hero-pb: clamp(1.75rem, 1.25rem + 2vw, 3.25rem);    /* page header bottom */
+  --heading-gap: clamp(1.25rem, 1rem + 1vw, 2.25rem);   /* section heading -> content */
+  --block-gap: clamp(1.75rem, 1rem + 3vw, 4rem);        /* two-column grid gutters */
+  --stack-gap: clamp(2rem, 1.5rem + 2vw, 3.5rem);       /* stacked sub-blocks within a section */
   --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
   --container: 1240px;
   --container-narrow: 820px;
