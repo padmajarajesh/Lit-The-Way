@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // GitHub Pages serves 404.html for unknown paths. Copying index.html there lets
-// deep links and refreshes (e.g. /NGO-IA/about) load the app, which then routes client-side.
+// deep links and refreshes (e.g. /Lit-The-Way/about) load the app, which then routes client-side.
 const spaFallback = () => ({
   name: 'spa-fallback-404',
   apply: 'build',
@@ -15,7 +15,7 @@ const spaFallback = () => ({
 });
 
 export default defineConfig({
-  base: '/NGO-IA/',
+  base: '/Lit-The-Way/',
   plugins: [react(), spaFallback()],
   server: { port: 5173, open: false },
 });

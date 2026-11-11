@@ -12,7 +12,7 @@ npm run build    # production build in dist/
 npm run preview  # serve the production build
 ```
 
-Deployed to GitHub Pages at https://padmajarajesh.github.io/NGO-IA/ by `.github/workflows/deploy.yml` on every push to `main`. The build sets `base: '/NGO-IA/'` and copies `index.html` to `404.html` so deep links and refreshes work.
+Deployed to GitHub Pages at https://padmajarajesh.github.io/Lit-The-Way/ by `.github/workflows/deploy.yml` on every push to `main`. The build sets `base: '/Lit-The-Way/'` and copies `index.html` to `404.html` so deep links and refreshes work.
 
 ## Updating content
 
@@ -28,7 +28,7 @@ All content lives in `src/data/` — edit these files, not the page components.
 | `gallery.js` | Gallery photos, captions and categories |
 | `teamMembers.js` | Chair and members. Set `photo` (and optionally `photoPosition`) to replace the “Photograph to follow” frame; `role`/`bio` appear only when filled |
 
-Photos are in `public/images/`. To add a team portrait, save it there and set the member's `photo`, e.g. ``photo: `${import.meta.env.BASE_URL}images/team/hari-pillai.jpg` `` (always prefix with `import.meta.env.BASE_URL` so paths work under `/NGO-IA/`).
+Photos are in `public/images/`. To add a team portrait, save it there and set the member's `photo`, e.g. ``photo: `${import.meta.env.BASE_URL}images/team/hari-pillai.jpg` `` (always prefix with `import.meta.env.BASE_URL` so paths work under `/Lit-The-Way/`).
 
 ## Pending (by design)
 
