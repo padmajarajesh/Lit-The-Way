@@ -4,6 +4,7 @@ import Hero from '../components/Hero.jsx';
 import SectionHeading from '../components/SectionHeading.jsx';
 import { IndiaFlag, USFlag } from '../components/Flags.jsx';
 import CTASection from '../components/CTASection.jsx';
+import ImpactCounters from '../components/ImpactCounters.jsx';
 import Reveal, { RevealGroup, RevealItem, RevealImage } from '../components/Reveal.jsx';
 import { organisation, quotes } from '../data/site.js';
 
@@ -71,6 +72,9 @@ export default function About() {
           </Reveal>
         </div>
       </section>
+
+      {/* Impact — shown on this page only, directly below Our Story (content: data/impact.js) */}
+      <ImpactCounters />
 
       {/* Mission */}
       <section className="section section--navy on-dark mission">

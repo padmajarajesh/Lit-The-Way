@@ -3,7 +3,7 @@ import { useReducedMotion } from 'framer-motion';
 import { impactCounter, impactStatement } from '../data/impact.js';
 
 /**
- * Site-wide impact section (rendered once in App.jsx, above the footer, so every page shows it).
+ * Impact section — shown on the About Us page only, directly below 'Our Story'.
  * Two columns: one animated counter on the left, an impact statement on the right.
  * Content lives in data/impact.js. The count-up runs once when the section scrolls into view
  * and is skipped for users who prefer reduced motion.

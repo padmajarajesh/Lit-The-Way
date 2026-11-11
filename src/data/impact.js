@@ -51,7 +51,7 @@ export const impactStories = [
 ];
 
 // ---------------------------------------------------------------------------
-// Impact section — shown on every page, just above the footer (components/ImpactCounters.jsx).
+// Impact section — shown on the About Us page only, below Our Story (components/ImpactCounters.jsx).
 // Figure and wording supplied by the client (Nov 2026).
 //   value  — whole number the counter animates up to
 //   suffix — shown after the number

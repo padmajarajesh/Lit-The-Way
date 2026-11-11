@@ -2,7 +2,6 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence, MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
-import ImpactCounters from './components/ImpactCounters.jsx';
 import MobileNav from './components/MobileNav.jsx';
 import ScrollManager from './components/ScrollManager.jsx';
 import PageTransition from './components/PageTransition.jsx';
@@ -48,8 +47,6 @@ export default function App() {
           ))}
         </Routes>
       </AnimatePresence>
-      {/* Impact counters appear on every page, directly above the footer (figures: data/impact.js) */}
-      <ImpactCounters />
       <Footer />
       <MobileNav />
     </MotionConfig>
