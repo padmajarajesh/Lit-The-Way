@@ -1,9 +1,9 @@
 // Team listing verified from the official Team page (littheway.org/committee.html).
 // Only the Chair has a published designation, photograph and biography.
-// To add a photograph: save it in public/images/team/ and set `photo`, e.g.
-//   photo: `${import.meta.env.BASE_URL}images/team/hari-pillai.jpg`
-// Portraits are cropped to 4:5; use `photoPosition` (e.g. 'center 20%') to adjust the crop.
-// Fill `role` or `bio` only with confirmed information — empty fields stay hidden.
+// Members are shown as decorative name cards (no photographs) — see components/TeamCard.jsx.
+// Dr. Suresh Margassery, Unni Nair and Rupesh Ashokan were added at the client's request (Nov 2026).
+// Fill `role` only with confirmed information — an empty role stays hidden.
+// `photo` / `bio` are kept for future use but are not displayed on the name cards.
 
 export const chair = {
   id: 'chair-viswanath-kurup',
@@ -23,4 +23,7 @@ export const teamMembers = [
   { id: 'member-santhosh-vadukkoot', name: 'Santhosh Vadukkoot', role: '', photo: '', bio: '' },
   { id: 'member-shiby-parayil', name: 'Shiby Parayil', role: '', photo: '', bio: '' },
   { id: 'member-ravi-nair', name: 'Ravi Nair', role: '', photo: '', bio: '' },
+  { id: 'member-suresh-margassery', name: 'Dr. Suresh Margassery', role: '', photo: '', bio: '' },
+  { id: 'member-unni-nair', name: 'Unni Nair', role: '', photo: '', bio: '' },
+  { id: 'member-rupesh-ashokan', name: 'Rupesh Ashokan', role: '', photo: '', bio: '' },
 ];

@@ -7,7 +7,7 @@
   --bg-secondary: #f8f4ec;      /* alternate sections — clearly lighter ivory */
   --bg-highlight: #dcc3a5;      /* highlighted sections — deeper warm beige (use .section--sand) */
   --surface-card: #fffcf6;      /* cards, form fields — lifts off both ivory and sand */
-  --surface-nav: #ffffff;       /* navbar & mobile bar — matches the logo file's own white ground */
+  --surface-nav: #fcf6ed;       /* navbar & mobile bar — exact client-specified header colour (do not change) */
 
   /* Surface aliases used throughout the stylesheets */
   --page: var(--bg-primary);
@@ -77,11 +77,11 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dur: 0.45s;
 
-  --nav-h: 84px;
+  --nav-h: 92px; /* fits the enlarged header logo */
 }
 
 @media (max-width: 900px) {
   :root {
-    --nav-h: 68px;
+    --nav-h: 72px;
   }
 }

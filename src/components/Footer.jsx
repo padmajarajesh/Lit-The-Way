@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Mail, Phone } from 'lucide-react';
 import Logo from './Logo.jsx';
 import { FlagPair } from './Flags.jsx';
-import { contact, navigation, organisation, secondaryLinks } from '../data/site.js';
+import { contact, navigation, organisation } from '../data/site.js';
 import { causes } from '../data/causes.js';
 
 export default function Footer() {
@@ -23,11 +23,6 @@ export default function Footer() {
           <h2 className="footer__title">Explore</h2>
           <ul className="footer__list">
             {navigation.map((item) => (
-              <li key={item.to}>
-                <Link to={item.to}>{item.label}</Link>
-              </li>
-            ))}
-            {secondaryLinks.map((item) => (
               <li key={item.to}>
                 <Link to={item.to}>{item.label}</Link>
               </li>

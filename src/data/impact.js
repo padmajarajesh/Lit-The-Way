@@ -49,3 +49,19 @@ export const impactStories = [
     imageAlt: 'Lit The Way volunteers at Community Partners of Dallas',
   },
 ];
+
+// ---------------------------------------------------------------------------
+// Impact section — shown on every page, just above the footer (components/ImpactCounters.jsx).
+// Figure and wording supplied by the client (Nov 2026).
+//   value  — whole number the counter animates up to
+//   suffix — shown after the number
+// ---------------------------------------------------------------------------
+export const impactCounter = {
+  value: 1000,
+  suffix: '+',
+  label: 'Students Supported',
+  description: 'Scholarship support to help students continue their education.',
+};
+
+export const impactStatement =
+  'Empowering students through education, helping them complete their studies and move towards successful careers and job opportunities.';

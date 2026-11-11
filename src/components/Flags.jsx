@@ -73,15 +73,15 @@ export function CountryFlag({ country, height }) {
   return country === 'us' ? <USFlag height={height} /> : <IndiaFlag height={height} />;
 }
 
-/** "India · United States" pairing with both flags. */
+/** "United States · India" pairing with both flags. Order is fixed site-wide: US first, India second. */
 export function FlagPair({ className = '', height = 13, labels = true }) {
   return (
     <span className={`flag-pair ${className}`}>
-      <IndiaFlag height={height} />
-      {labels && <span className="flag-pair__label">India</span>}
-      <span className="flag-pair__dot" aria-hidden="true" />
-      {labels && <span className="flag-pair__label">United States</span>}
       <USFlag height={height} />
+      {labels && <span className="flag-pair__label">United States</span>}
+      <span className="flag-pair__dot" aria-hidden="true" />
+      {labels && <span className="flag-pair__label">India</span>}
+      <IndiaFlag height={height} />
     </span>
   );
 }

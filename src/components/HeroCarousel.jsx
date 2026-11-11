@@ -8,6 +8,10 @@ import { heroEyebrow, heroMessages, heroSlides } from '../data/hero.jsx';
 const ease = [0.22, 1, 0.36, 1];
 const INTERVAL = 6500;
 
+// "Mission : Empowerment through Education." → label + text (wording unchanged, from data/hero.jsx)
+const [missionLabel, ...missionRest] = heroEyebrow.split(' : ');
+const mission = { label: missionLabel, text: missionRest.join(' : ') };
+
 /**
  * Split homepage hero: original slider wording on one side, photo carousel on the other.
  * All content lives in src/data/hero.jsx. Autoplay pauses on hover/focus and is off for reduced motion.
@@ -42,16 +46,21 @@ export default function HeroCarousel() {
   return (
     <section className="hero-split" aria-label="Welcome">
       <div className="container hero-split__grid">
+        {/* Mission line — spans the full banner width, centred, as the main focal line */}
+        <motion.p
+          className="eyebrow hero-split__eyebrow"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease, delay: 0.15 }}
+        >
+          {/* On phones the line breaks deliberately after "Mission :" so it never clips */}
+          <span>
+            {mission.label} : <span className="hero-split__eyebrow-text">{mission.text}</span>
+          </span>
+        </motion.p>
+
         {/* Wording */}
         <div className="hero-split__text">
-          <motion.p
-            className="eyebrow hero-split__eyebrow"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease, delay: 0.15 }}
-          >
-            {heroEyebrow}
-          </motion.p>
 
           {/* All messages share one grid cell so the height never jumps between slides. */}
           <div className="hero-split__messages" aria-live="polite">
@@ -96,7 +105,7 @@ export default function HeroCarousel() {
           className="hero-carousel"
           role="region"
           aria-roledescription="carousel"
-          aria-label="Photographs from Lit The Way in India and the United States"
+          aria-label="Photographs from Lit The Way in the United States and India"
           tabIndex={0}
           onKeyDown={onKey}
           onMouseEnter={() => setPaused(true)}

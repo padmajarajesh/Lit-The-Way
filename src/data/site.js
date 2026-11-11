@@ -38,7 +38,7 @@ export const quotes = {
 };
 
 // Main menu — the original littheway.org menu (Home, About Us, Events, Activities, Team, Gallery).
-// Do not add or rename items here. Other pages (Causes, Donate, Contact) are linked from the footer and page content.
+// Do not add or rename items here. Other pages (Causes, Donate, Contact) are linked from page content and the mobile “More” menu.
 export const navigation = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about' },
@@ -49,6 +49,7 @@ export const navigation = [
 ];
 
 // Pages that exist on this site but are not in the original main menu.
+// Not listed in the footer (removed at client request); shown in the mobile “More” menu.
 export const secondaryLinks = [
   { label: 'Our Causes', to: '/causes' },
   { label: 'Donate', to: '/donate' },

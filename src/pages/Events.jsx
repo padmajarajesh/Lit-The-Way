@@ -1,12 +1,10 @@
 import { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CalendarDays, ArrowRight } from 'lucide-react';
-import Hero from '../components/Hero.jsx';
 import SectionHeading from '../components/SectionHeading.jsx';
 import EventCard from '../components/EventCard.jsx';
 import Lightbox from '../components/Lightbox.jsx';
 import Reveal from '../components/Reveal.jsx';
-import { FlagPair } from '../components/Flags.jsx';
 import { events, upcomingEvents } from '../data/events.js';
 
 export default function Events() {
@@ -16,10 +14,11 @@ export default function Events() {
 
   return (
     <>
-      <Hero eyebrow="Lit The Way" title="Events" lede={<FlagPair />} />
+      {/* Page banner removed at client request; content starts directly below the main navigation. */}
+      <h1 className="visually-hidden">Events</h1>
 
       {/* 1 — Past Events (verified from official posters) */}
-      <section className="section section--white" aria-labelledby="past-events">
+      <section className="section section--white section--page-top" aria-labelledby="past-events">
         <div className="container">
           <SectionHeading number="01" eyebrow="Events" title={<span id="past-events">Past Events</span>} />
           <div className="event-list">

@@ -64,8 +64,9 @@ export const causes = [
     short: 'Flood rehabilitation, clean drinking water and care for elders and families in crisis.',
     description:
       'From rehabilitating twelve homes damaged in the 2018 Kerala floods to an RO drinking water plant in Edathua and aid to an old-age home in Kollam, Lit The Way responds where communities need it most.',
-    image: `${import.meta.env.BASE_URL}images/community-gathering-children.jpg`,
-    imageAlt: 'Children and community members gathered outdoors at a support programme',
+    // Client-supplied group photograph (Nov 2026); 4:3, matching the card frame, so it is shown uncropped.
+    image: `${import.meta.env.BASE_URL}images/dallas-volunteers-thank-you.jpg`,
+    imageAlt: 'Lit The Way volunteers standing beside the “Thank you, community partners of Dallas” wall',
     basis: 'Activities page — beneficiaries list',
   },
 ];

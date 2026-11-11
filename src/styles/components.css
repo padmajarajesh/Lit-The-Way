@@ -111,7 +111,7 @@
 .link-arrow:hover svg { transform: translate(3px, 0); }
 .on-dark .link-arrow { color: var(--ivory); }
 
-/* Logo (official image, unaltered) ------------------------------------ */
+/* Logo (official artwork, white background removed → transparent PNG) --- */
 .logo {
   display: inline-flex;
   align-items: center;
@@ -119,18 +119,14 @@
 }
 .logo__img {
   display: block;
-  height: 50px;
+  height: 50px; /* base size (footer etc.); the header sizes are set under Navigation */
   width: auto; /* aspect ratio always preserved */
   max-width: none;
 }
-/* White mount for dark or tinted surfaces — matches the logo file’s own white ground. */
-.logo--plate {
-  padding: 0.55rem 0.85rem;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 0 1px rgba(197, 170, 120, 0.35), 0 10px 28px -14px rgba(0, 0, 0, 0.45);
-}
-.logo--plate .logo__img { height: 54px; }
+/* The logo is now transparent, so no white mount is needed; `plate` only sizes it
+   and adds a soft lift for dark surfaces such as the footer. */
+.logo--plate .logo__img { filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.28)); }
+.logo--plate .logo__img { height: 47px; } /* same visible size as before the logo file was trimmed */
 
 /* Navigation ------------------------------------------------------------ */
 .nav {
@@ -138,7 +134,7 @@
   inset: 0 0 auto 0;
   z-index: 100;
   height: var(--nav-h);
-  /* White to sit seamlessly with the logo’s white ground; gold hairline as an accent. */
+  /* Client-specified header colour #fcf6ed (via --surface-nav); gold hairline as an accent. */
   background: var(--surface-nav);
   border-bottom: 1px solid rgba(197, 170, 120, 0.28);
   transition: background-color 0.5s var(--ease), border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
@@ -201,15 +197,17 @@
 @media (max-width: 1020px) {
   .nav__links { display: none; }
 }
+/* Header logo — enlarged at client request (artwork is 188 × 56 px, trimmed to its edges) */
+.nav .logo__img { height: 64px; }
 @media (max-width: 900px) {
-  .nav .logo__img { height: 42px; }
+  .nav .logo__img { height: 52px; }
 }
 @media (max-width: 480px) {
-  .nav .logo__img { height: 38px; }
+  .nav .logo__img { height: 46px; }
   .nav__flags { padding-left: 0; border-left: 0; }
 }
 @media (max-width: 340px) {
-  .nav .logo__img { height: 34px; }
+  .nav .logo__img { height: 40px; }
 }
 
 /* Mobile bottom navigation (≤ 1020px, where the top links are hidden) ---- */
@@ -1257,7 +1255,7 @@ a.cause-card__link:hover .cause-card__more svg { transform: translate(2px, -2px)
     column-gap: 1rem;
   }
   .footer .logo--plate { padding: 0.4rem 0.6rem; }
-  .footer .logo--plate .logo__img { height: 42px; }
+  .footer .logo--plate .logo__img { height: 36px; }
   .footer__mission { margin: 0; line-height: 1.5; }
   .footer__flags { grid-column: 1 / -1; margin-top: 0.7rem; }
   .footer__title { margin-bottom: 0.45rem; }

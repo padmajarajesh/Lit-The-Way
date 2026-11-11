@@ -137,12 +137,12 @@ export default function About() {
         </div>
       </section>
 
-      {/* India & United States — verified activities only (see data/impact.js, data/events.js) */}
+      {/* United States & India — verified activities only (see data/impact.js, data/events.js) */}
       <section className="section section--white two-homes">
         <div className="container">
           <SectionHeading
             number="04"
-            eyebrow="India · United States"
+            eyebrow="United States · India"
             title={
               <>
                 Across Cultures, <span className="accent">United by Compassion.</span>
@@ -153,17 +153,6 @@ export default function About() {
           <RevealGroup className="two-homes__grid" stagger={0.12}>
             {[
               {
-                flag: <IndiaFlag height={18} />,
-                country: "India",
-                image: "textbooks-alappuzha-1.jpg",
-                alt: "Lit The Way donating textbooks to children in Alappuzha",
-                items: [
-                  "Scholarships through Sri Ramakrishna Ashrama, Kerala",
-                  "Textbooks and notebooks for Sree Sarada Devi Balika Sadanam, Alappuzha",
-                  "Rehabilitation of homes after the 2018 Kerala floods",
-                ],
-              },
-              {
                 flag: <USFlag height={18} />,
                 country: "United States",
                 image: "dallas-volunteers-packing.jpg",
@@ -172,6 +161,17 @@ export default function About() {
                   "A 501(c)(3) nonprofit charitable organization, established in 2008",
                   "Volunteering at Community Partners of Dallas",
                   "Malayalam drama with Bharathakala Theaters, Dallas",
+                ],
+              },
+              {
+                flag: <IndiaFlag height={18} />,
+                country: "India",
+                image: "textbooks-alappuzha-1.jpg",
+                alt: "Lit The Way donating textbooks to children in Alappuzha",
+                items: [
+                  "Scholarships through Sri Ramakrishna Ashrama, Kerala",
+                  "Textbooks and notebooks for Sree Sarada Devi Balika Sadanam, Alappuzha",
+                  "Rehabilitation of homes after the 2018 Kerala floods",
                 ],
               },
             ].map((c) => (
